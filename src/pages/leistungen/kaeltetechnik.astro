@@ -1,0 +1,47 @@
+---
+import Gewerk from "../../components/Gewerk.astro";
+import Layout from "../../layouts/Base.astro";
+---
+
+<Layout
+  title="Kältetechnik | Caliqua-Bormann"
+  description="Kältetechnik für Industrie und Gewerbe im Großraum München: Klimakaltwasser, Rückkühlwerke, Eisspeicher und Splitt-Geräte."
+>
+  <Gewerk
+    title="Kältetechnik"
+    lead="Die Fachabteilung für kältetechnische Anlagen arbeitet für industrielle und gewerbliche Kunden. Ziel ist die zentrale Versorgung von Klimaanlagen, Kühldecken, Bauteilkühlsystemen, EDV-Räumen und Rechenzentren über Klimakaltwasseranlagen – ergänzt um dezentrale Splitt-Geräte."
+    sections={[
+      {
+        title: "Komplexe Kälteinstallationen",
+        items: [
+          "Kältemaschinen und Großkältemaschinen",
+          "Rückkühlwerke und Kühltürme",
+          "Eisspeicheranlagen",
+          "Brunnenwassersysteme",
+          "Kälteversorgungsnetze und Abnehmer (Register, Kühldecken, Fan-Coils)",
+        ],
+      },
+      {
+        title: "Gebäudearten und Kunden",
+        intro: "Büro und Verwaltung, Industrie, Sport und Messe, Hotels, Krankenhäuser, Verkauf, Gastronomie – vorrangig öffentliche Auftraggeber, Konzerne, Banken, Versicherungen, Krankenhäuser, Industriewerke und Generalunternehmer.",
+      },
+      {
+        title: "Leistungsgrößen",
+        items: ["Neubau", "Umbau", "Sanierung", "Optimierung", "Reparatur"],
+      },
+      {
+        title: "Hintergrund",
+        items: [
+          "Eigene Schlosserwerkstatt, geprüfte Schweißer",
+          "Wartung und 24-Stunden-Notrufbereitschaft",
+          "Montageplanung 2D/3D, eigenes technisches Büro",
+          "TÜV-überwachtes Qualitätsmanagement",
+        ],
+      },
+      {
+        title: "Materialien",
+        items: ["Stahl, Edelstahl, Kunststoffe", "Schweißen, Pressen, Löten, Gewinde", "Rohrleitungsbau"],
+      },
+    ]}
+  />
+</Layout>

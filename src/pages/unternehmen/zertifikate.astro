@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Base.astro";
+import { certificates } from "../../data/certificates";
+---
+
+<Layout
+  title="Zertifikate und Bescheinigungen | Caliqua-Bormann"
+  description="Downloads: BGHM, AXA, Finanzamt, SWM, IHK, Krankenkassen, ISO 9001, VDI 6023, WHG. Nachweise für Auftraggeber der Caliqua-Bormann GmbH & Co. KG."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Bescheinigungen und Zertifikate</h1>
+      <p class="lead">
+        Ausdruck von Kompetenz, Zuverlässigkeit und gleichbleibender Qualität.
+        Nachweise zum Download für Auftraggeber.
+      </p>
+    </header>
+    <div class="cert-grid">
+    {
+      certificates.map((group) => (
+        <section>
+          <h2>{group.title}</h2>
+          <p>{group.text}</p>
+          <ul>
+            {group.files.map((file) => (
+              <li>
+                <a href={file.href}>{file.label}</a> (PDF)
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+    </div>
+    <div class="legal-copy">
+    <h2 class="block-head">Widerrufsrecht für Verbraucher</h2>
+    <p>
+      Ist der Käufer Verbraucher, steht ihm nach den gesetzlichen Bestimmungen ein
+      Widerrufsrecht zu. Widerruf schriftlich an CALIQUA-BORMANN GmbH &amp; Co. KG,
+      Frankfurter Ring 222, 80807 München,
+      <a href="mailto:info@caliqua-bormann.de">info@caliqua-bormann.de</a>,
+      Tel. 089 32361-0, binnen 14 Tagen ab Vertragsschluss.
+    </p>
+    <p>
+      Zur Wahrung der Frist reicht die rechtzeitige Absendung. Folgen des Widerrufs
+      und das Muster-Widerrufsformular richten sich nach der gesetzlichen Regelung.
+      Bei ausdrücklich verlangtem Beginn der Arbeiten vor Fristablauf kann
+      Wertersatz für bereits erbrachte Leistungen anfallen.
+    </p>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Base.astro";
+import { references } from "../data/references";
+---
+
+<Layout
+  title="Referenzen | Caliqua-Bormann"
+  description="Ausgewählte Referenzen der Caliqua-Bormann GmbH & Co. KG: Büro, Industrie, Krankenhäuser, Kältezentralen, Museen und Wohnungsbau im Großraum München."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Referenzen</h1>
+      <p class="lead">
+        Als besonders geeignet sehen wir uns für Aufgaben, bei denen technische
+        Kompetenz, Organisationsvermögen oder Flexibilität gefordert sind. In
+        rund 90 Jahren Tätigkeit sind viele Anlagen entstanden. Eine Auswahl,
+        ohne Doppelungen und ohne Auftragswerte:
+      </p>
+    </header>
+    {
+      references.map((group) => (
+        <section>
+          <h2>{group.title}</h2>
+          <ul class="project-index">
+            {group.items.map((item) => (
+              <li>
+                <div>
+                  <strong>{item.name}</strong>
+                  {item.client && <p class="meta">{item.client}</p>}
+                </div>
+                <span>{item.gewerke}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</Layout>

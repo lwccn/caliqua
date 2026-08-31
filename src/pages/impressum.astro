@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Layout
+  title="Impressum | Caliqua-Bormann"
+  description="Impressum der CALIQUA-BORMANN GmbH & Co. KG, Frankfurter Ring 222, 80807 München. HRA 14921, Geschäftsführung Bertram Schäfer und Maximilian Bracht."
+>
+  <div class="wrap legal">
+    <header class="page-head">
+      <h1>Impressum</h1>
+    </header>
+
+    <p>
+      <strong>{site.name}</strong><br />
+      {site.address.street}<br />
+      {site.address.zip} {site.address.city}<br />
+      {site.address.country}
+    </p>
+    <p>
+      Tel.: +49 89 32361-0<br />
+      Fax: +49 89 32361-200<br />
+      E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a><br />
+      Website: <a href={site.url}>www.caliqua-bormann.de</a>
+    </p>
+
+    <h2>Register und Steuern</h2>
+    <p>
+      Eingetragen beim Amtsgericht München<br />
+      Handelsregisternummer: HRA 14921<br />
+      Sitz der Gesellschaft: München<br />
+      Finanzamt: München I<br />
+      Steuernummer: 143/509/00293 (seit 11.08.2016; vormals 144/239/00491)<br />
+      USt-IdNr.: DE129734906<br />
+      Zuständiges Hauptzollamt: München<br />
+      Zollnummer: 5993970
+    </p>
+
+    <h2>Komplementärin</h2>
+    <p>
+      Schäfer Verwaltungsgesellschaft mbH<br />
+      Amtsgericht München, HRB 43252<br />
+      Sitz: München<br />
+      Finanzamt München für Körperschaftsteuern<br />
+      Steuernummer: 143 207 20207
+    </p>
+
+    <h2>Geschäftsführung</h2>
+    <p>
+      Dipl.-Ing. (Univ.) Bertram Schäfer<br />
+      Betriebswirt (HwO) Maximilian Bracht
+    </p>
+
+    <h2>Betriebshaftpflicht</h2>
+    <p>
+      Betriebs-, Produkt- und Umwelthaftpflichtversicherung: AXA Versicherung AG.
+      Bestätigung unter <a href="/unternehmen/zertifikate">Zertifikate</a>.
+    </p>
+
+    <h2>Streitschlichtung</h2>
+    <p>
+      Vermittlungsstelle der Handwerkskammer für München und Oberbayern,
+      Max-Joseph-Str. 4, 80333 München, Tel. 089 5119-163,
+      <a href="mailto:vermittlungsstelle@hwk-muenchen.de">vermittlungsstelle@hwk-muenchen.de</a>
+      (§ 91 Abs. 1 Nr. 11 HwO). Das Unternehmen ist weder bereit noch verpflichtet,
+      an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+      teilzunehmen.
+    </p>
+  </div>
+</Layout>

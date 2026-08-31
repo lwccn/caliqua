@@ -1,0 +1,41 @@
+---
+import { buildingZones } from "../data/building";
+---
+
+<figure class="building">
+  <div class="building-stage">
+    <img
+      src="/images/craft/building-iso.jpg"
+      alt="Isometrisches Modell eines Gebäudes mit Heizung, Lüftung, Sanitär, Kälte und Hofzufahrt. Keine konkrete Anlage."
+      width="1536"
+      height="1024"
+    />
+    <svg class="building-map" viewBox="0 0 1536 1024" role="group" aria-label="Gewerke im Gebäude">
+      {
+        buildingZones.map((zone) => (
+          <a href={zone.href} data-zone={zone.id}>
+            <title>{zone.label}: {zone.note}</title>
+            <polygon points={zone.points} />
+          </a>
+        ))
+      }
+    </svg>
+    <div class="pins">
+      {
+        buildingZones.map((zone) => (
+          <a
+            class="pin"
+            href={zone.href}
+            data-zone={zone.id}
+            aria-label={`${zone.nr} ${zone.label}`}
+            style={`left: ${zone.pinX}%; top: ${zone.pinY}%;`}
+          >
+            <span class="pin-dot">{zone.nr}</span>
+            <span class="pin-name">{zone.label}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <figcaption class="cap">Die Nummern sind klickbar. Modell, keine konkrete Anlage.</figcaption>
+</figure>

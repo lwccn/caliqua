@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Base.astro";
+import { contacts } from "../data/contacts";
+import { site } from "../data/site";
+
+function rowId(title: string) {
+  if (title.startsWith("Vertrieb")) return "vertrieb";
+  if (title.startsWith("Notdienst")) return "notdienst";
+  return undefined;
+}
+---
+
+<Layout
+  title="Kontakt und Anfahrt | Caliqua-Bormann"
+  description="CALIQUA-BORMANN GmbH & Co. KG, Frankfurter Ring 222, 80807 München. Neue Projekte an den Vertrieb, Störungen an den Notdienst für Bestandskunden."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Kontakt</h1>
+      <p class="lead">
+        Neue Bauvorhaben und Angebote: Vertrieb und Kalkulation.
+        Störungen an bestehenden Anlagen: Kundendienst, bei Bestandskunden die
+        24-Stunden-Hotline. Bewerbungen nur per E-Mail.
+      </p>
+    </header>
+
+    <div class="split">
+      <div>
+        <h2>Adresse und Anfahrt</h2>
+        <p>
+          {site.name}<br />
+          {site.address.street}<br />
+          {site.address.zip} {site.address.city}
+        </p>
+        <p>
+          National {site.phone}, international +49 89 32361-0.
+        </p>
+        <h2>Öffentliche Verkehrsmittel</h2>
+        <ul>
+          {site.transit.map((item) => <li>{item}</li>)}
+        </ul>
+        <p>
+          Karte:
+          <a
+            href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(`${site.address.street} ${site.address.zip} ${site.address.city}`)}`}
+            rel="noopener"
+          >
+            OpenStreetMap, Frankfurter Ring 222
+          </a>
+        </p>
+        <h2>Telefonische Geschäftszeiten</h2>
+        <ul>
+          {site.hours.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="meta">Es gibt kein Kontaktformular auf dieser Website.</p>
+      </div>
+      <div class="media">
+        <img src="/images/muenchen.jpg" alt="München, Umfeld des Firmensitzes" width="800" height="450" />
+      </div>
+    </div>
+
+    <h2 class="block-head">Kontaktdaten der Abteilungen</h2>
+    <div class="dir-wrap">
+    <table class="dir">
+      <thead>
+        <tr>
+          <th>Bereich</th>
+          <th>Telefon</th>
+          <th>E-Mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          contacts.map((row) => (
+            <tr id={rowId(row.title)} class="section-anchor">
+              <td>
+                <strong>{row.title}</strong>
+                {row.note && (
+                  <>
+                    <br />
+                    <span class="meta">{row.note}</span>
+                  </>
+                )}
+              </td>
+              <td>
+                {row.phone ? <a href={row.phoneHref}>{row.phone}</a> : "—"}
+              </td>
+              <td>
+                {row.email ? <a href={`mailto:${row.email}`}>{row.email}</a> : "—"}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    </div>
+  </div>
+</Layout>

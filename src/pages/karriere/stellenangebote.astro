@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Base.astro";
+import { jobs } from "../../data/jobs";
+---
+
+<Layout
+  title="Stellenangebote | Caliqua-Bormann"
+  description="Aktuelle Stellen: Projektleiter, CAD, Kundendienstmonteur, Obermonteur, Kalkulator und Monteure in der Gebäudetechnik München."
+  includeJobs={true}
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Stellenangebote</h1>
+      <p class="lead">
+        CALIQUA-BORMANN steht für einen fairen Umgang mit Bewerberinnen und
+        Bewerbern – unabhängig vom Geschlecht. Die männliche Form dient der
+        Lesbarkeit. Ausschreibungen gelten auch intern und für eingesetzte
+        Leiharbeitnehmer. Bitte nur per E-Mail bewerben, keine Papierunterlagen.
+      </p>
+    </header>
+
+    {
+      jobs.map((job) => (
+        <article class="job" id={job.id}>
+          <h2>{job.title}</h2>
+          {job.subtitle && <p class="meta">{job.subtitle}</p>}
+          {job.extra && <p>{job.extra}</p>}
+          <div class="job-grid">
+            <div>
+              <h3>Aufgaben</h3>
+              <ul>
+                {job.tasks.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Profil</h3>
+              <ul>
+                {job.profile.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3>Angebot</h3>
+              <ul>
+                {job.offer.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p>
+            Bewerbung mit Eintrittstermin und Gehaltsvorstellung an
+            <a href={`mailto:${job.email}`}>{job.email}</a>
+            {job.phone && (
+              <>
+                , Rückfragen unter <a href={`tel:${job.phone.replace(/\s/g, "")}`}>{job.phone}</a>
+              </>
+            )}
+            .
+          </p>
+        </article>
+      ))
+    }
+
+    <article class="job">
+      <h2>Monteure / Anlagenmechaniker Montage (m/w/d)</h2>
+      <p>
+        Können sich regelmäßig mit einer kurzen E-Mail bewerben:
+        <a href="mailto:bewerbung@caliqua-bormann.de">bewerbung@caliqua-bormann.de</a>.
+      </p>
+    </article>
+
+    <article class="job">
+      <h2>Initiativbewerbungen</h2>
+      <p>
+        Initiativbewerbungen werten wir unverzüglich aus. Wenn eine Stelle
+        möglich ist, melden wir uns kurzfristig. Bitte haben Sie Verständnis,
+        wenn wir nicht jede Initiativbewerbung schriftlich beantworten können.
+      </p>
+    </article>
+  </div>
+</Layout>

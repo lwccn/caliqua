@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Base.astro";
+import { agbFiles } from "../../data/certificates";
+---
+
+<Layout
+  title="Allgemeine Geschäftsbedingungen | Caliqua-Bormann"
+  description="AGB der CALIQUA-BORMANN GmbH & Co. KG für Werkverträge mit privaten und gewerblichen Auftraggebern."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Allgemeine Geschäftsbedingungen</h1>
+      <p class="lead">
+        AGB für Werkverträge mit privaten und gewerblichen Auftraggebern (Stand 2022).
+      </p>
+    </header>
+    <ul>
+      {
+        agbFiles.map((file) => (
+          <li>
+            <a href={file.href}>{file.label}</a> (PDF)
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

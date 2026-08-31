@@ -1,0 +1,46 @@
+---
+import Gewerk from "../../components/Gewerk.astro";
+import Layout from "../../layouts/Base.astro";
+---
+
+<Layout
+  title="Sanitär, Gas, Medien | Caliqua-Bormann"
+  description="Sanitärtechnik, Erdgas und Medienleitungen im Großraum München, inklusive Trinkwasserhygiene nach VDI 6023 und WHG-Fachbetrieb."
+>
+  <Gewerk
+    title="Sanitär, Gas, Medien"
+    lead="Die Fachabteilung für sanitärtechnische Anlagen arbeitet vom Hausanschluss bis zur vollständigen Badausstattung. Zweck ist die hygienisch einwandfreie Versorgung mit Trinkwasser einschließlich Erwärmung und Aufbereitung, die Entsorgung von Abwässern bis zum Hausanschluss sowie Gas- und Medieninstallationen."
+    sections={[
+      {
+        title: "Installationen",
+        items: [
+          "Wasserversorgung und Abwasserentsorgung",
+          "Medienversorgung und Druckluft",
+          "Erdgas-Versorgungsleitungen",
+          "Trinkwasserhygiene, Probenentnahme, Legionellenbekämpfung",
+          "Wasseraufbereitung, Kalk- und Korrosionsschutz",
+          "Sanitäre Einrichtungsgegenstände",
+        ],
+      },
+      {
+        title: "Nachweise",
+        items: [
+          "Sachkunde nach VDI/DVGW 6023 Kategorie A und B",
+          "Zertifizierte Trinkwasser-Probenentnehmer",
+          "TÜV-zertifizierte Fachkraft WHG",
+          "Sachkunde gemäß AVBWasserV § 12 Abs. 2 und § 13 Abs. 2 NDAV",
+          "Eigene Werkstatt, technisches Büro, 24-Stunden-Notdienst",
+        ],
+      },
+      {
+        title: "Leistungsgrößen",
+        intro: "Von der Kleinreparatur über Wohnungen bis zur komplexen Großanlage.",
+        items: ["Neubau", "Umbau", "Sanierung", "Reparatur", "Trinkwasserhygiene / Legionellenbekämpfung"],
+      },
+      {
+        title: "Materialien",
+        items: ["Edelstahl, Kupfer", "Kunststoffe und Verbundmaterialien", "Schweißen, Pressen, Löten, Gewinde", "Rohrleitungsbau"],
+      },
+    ]}
+  />
+</Layout>

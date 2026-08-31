@@ -1,0 +1,46 @@
+---
+import Gewerk from "../../components/Gewerk.astro";
+import Layout from "../../layouts/Base.astro";
+---
+
+<Layout
+  title="Raumlufttechnik | Caliqua-Bormann"
+  description="Raumlufttechnische Anlagen im Großraum München: Behaglichkeit, Luftreinhaltung und Entrauchung, von der Reparatur bis zur Großanlage."
+>
+  <Gewerk
+    title="Raumlufttechnik"
+    lead="Mit der Fachabteilung für raumlufttechnische Anlagen arbeiten wir an kleinen und großen Objekten. Vorrangiges Ziel ist – je nach Anwendungsfall – die ökonomische und umweltverträgliche Schaffung von Behaglichkeit, Luftreinhaltung oder Entrauchung im Brandfall."
+    sections={[
+      {
+        title: "Gebäudearten",
+        items: [
+          "Wohn-, Büro- und Verwaltungsgebäude",
+          "Industrie-, Sport- und Messehallen",
+          "Schulen, Hochschulen, Forschung",
+          "Museen, Labore, Hotels",
+          "Krankenhäuser und Operationsräume",
+          "Verkauf, Gastronomie, Großküchen, Discotheken",
+          "Objektabsaugungen und Sonderanlagen",
+        ],
+      },
+      {
+        title: "Leistungsgrößen",
+        items: ["Neubau", "Umbau", "Sanierung", "Optimierung", "Reparatur", "Wartung"],
+      },
+      {
+        title: "Hintergrund",
+        items: [
+          "Eigene Schlosserwerkstatt für Kleinteile und Traversen",
+          "Wartung und 24-Stunden-Notrufbereitschaft",
+          "Montageplanung 2D/3D mit AutoCAD oder MicroStation",
+          "Eigenes technisches Büro, Fachkraft für Arbeitssicherheit",
+          "TÜV-überwachtes Qualitätsmanagement, eigene Ausbildung",
+        ],
+      },
+      {
+        title: "Vom Bedarf bis zum Notdienst",
+        items: ["Bedarfsanalyse", "Beratung und Konzeption", "Planung", "Ausführung auf eigener oder Fremdplanung", "Wartung und Notdienst"],
+      },
+    ]}
+  />
+</Layout>

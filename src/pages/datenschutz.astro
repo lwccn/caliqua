@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Layout
+  title="Datenschutz | Caliqua-Bormann"
+  description="Datenschutzhinweise der CALIQUA-BORMANN GmbH & Co. KG zur statischen Website: keine Tracking-Cookies, keine Google-Fonts, kein Kontaktformular."
+>
+  <div class="wrap legal">
+    <header class="page-head">
+      <h1>Datenschutz</h1>
+    </header>
+
+    <div class="note">
+      Diese Fassung beschreibt den statischen Relaunch (selbst gehostete Schriften,
+      keine Karten-Einbettung, kein Kontaktformular, kein Tracking). Sie ersetzt
+      die veralteten Theme-Texte der Contao-Seite (Google Fonts, Google Maps,
+      jQuery-CDN, Kontaktformular). Vor dem Go-Live von der
+      Datenschutzbeauftragten bzw. einem Anwalt prüfen lassen.
+    </div>
+
+    <h2>Verantwortliche Stelle</h2>
+    <p>
+      {site.name}, {site.address.street}, {site.address.zip} {site.address.city},
+      <a href={`mailto:${site.email}`}>{site.email}</a>, Tel. {site.phone}.
+    </p>
+    <p>
+      Externe Datenschutzbeauftragte:
+      <a href="mailto:datenschutz@caliqua-bormann.de">datenschutz@caliqua-bormann.de</a>.
+    </p>
+
+    <h2>Bereitstellung der Website</h2>
+    <p>
+      Beim Aufruf verarbeitet der Hosting-Anbieter technisch erforderliche
+      Server-Logfiles (z.&nbsp;B. IP-Adresse, Zeitpunkt, aufgerufene Seite,
+      User-Agent). Zweck: Betrieb und Sicherheit der Website, Rechtsgrundlage
+      Art. 6 Abs. 1 lit. f DSGVO. Speicherdauer nach den üblichen Fristen des
+      Hosters, Standort vorzugsweise Deutschland bzw. EU.
+    </p>
+    <p>
+      Schriften werden lokal ausgeliefert. Es findet kein Aufruf von Google Fonts,
+      Google Maps, Google Ajax oder jquery.com statt. Ein Cookie-Banner ist für
+      diese rein statische Website ohne Tracking nicht vorgesehen.
+    </p>
+
+    <h2>Kontakt per E-Mail oder Telefon</h2>
+    <p>
+      Schreiben oder rufen Sie uns an, verarbeiten wir die von Ihnen mitgeteilten
+      Daten zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b oder f DSGVO). Es
+      gibt kein Kontaktformular. E-Mail-Übertragung ist nicht durchgängig
+      Ende-zu-Ende verschlüsselt.
+    </p>
+
+    <h2>Bewerbungen</h2>
+    <p>
+      Bewerbungsunterlagen an bewerbung@, karriere@ oder die in der Ausschreibung
+      genannte Adresse dienen der Durchführung des Bewerbungsverfahrens (Art. 6
+      Abs. 1 lit. b DSGVO, § 26 BDSG). Nicht berücksichtigte Unterlagen werden
+      nach Abschluss des Verfahrens in angemessener Frist gelöscht, soweit keine
+      längere Aufbewahrung gesetzlich nötig oder von Ihnen gewünscht ist.
+    </p>
+
+    <h2>Mitarbeiterbereich</h2>
+    <p>
+      Der Login für Beschäftigte liegt auf einer eigenen Subdomain
+      (<a href={site.intranetUrl}>{site.intranetUrl.replace("https://", "")}</a>)
+      und unterliegt den dortigen Hinweisen sowie den internen Regelungen.
+    </p>
+
+    <h2>Externe Links</h2>
+    <p>
+      Verlinkungen zu kununu, LinkedIn, Microsoft Sway und OpenStreetMap führen zu
+      Angeboten Dritter. Beim Klick gelten deren Datenschutzhinweise. Inhalte
+      Dritter werden nicht in diese Website eingebettet.
+    </p>
+
+    <h2>Ihre Rechte</h2>
+    <p>
+      Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit,
+      Widerspruch gegen Verarbeitungen auf Grundlage berechtigten Interesses sowie
+      Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft. Beschwerde
+      bei einer Aufsichtsbehörde, für Bayern:
+      <a href="https://www.datenschutz-bayern.de/">Bayerischer Landesbeauftragter für den Datenschutz</a>.
+    </p>
+
+    <h2>Haftung und Urheberrecht</h2>
+    <p>
+      Inhalte wurden mit Sorgfalt erstellt; für Vollständigkeit und Richtigkeit
+      wird keine Gewähr übernommen. Der Inhalt unterliegt dem Urheberrecht.
+      Externe Links werden zum Zeitpunkt der Verknüpfung geprüft; auf spätere
+      Änderungen haben wir keinen Einfluss.
+    </p>
+  </div>
+</Layout>

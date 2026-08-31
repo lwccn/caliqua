@@ -1,0 +1,62 @@
+---
+import { headerNav, site } from "../data/site";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+function current(href: string) {
+  const clean = href.replace(/\/$/, "") || "/";
+  if (clean === "/") return path === "/";
+  return path === clean || path.startsWith(`${clean}/`);
+}
+---
+
+<header class="site-header" id="site-header" transition:persist="site-header">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label={`${site.shortName} – Startseite`} transition:name="brand-logo">
+      <img src="/images/logo.png" width="214" height="58" alt={site.name} />
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" id="menu-btn">
+      Menü
+    </button>
+    <ul class="nav" id="main-nav">
+      {
+        headerNav.map((item) => (
+          <li>
+            <a href={item.href} aria-current={current(item.href) ? "page" : undefined}>
+              {item.label}
+            </a>
+            {item.children && (
+              <div class="sub">
+                {item.children.map((child) => (
+                  <a href={child.href} aria-current={current(child.href) ? "page" : undefined}>
+                    {child.label}
+                    {child.note && <span class="nav-note">{child.note}</span>}
+                  </a>
+                ))}
+              </div>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+    <a class="cta header-cta" href="/kontakt#vertrieb">Projekt anfragen</a>
+  </div>
+</header>
+
+<script>
+  function bindMenu() {
+    const header = document.getElementById("site-header");
+    const btn = document.getElementById("menu-btn");
+    if (!header || !btn) return;
+    header.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
+    if (btn.dataset.bound === "1") return;
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", () => {
+      const open = header.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+  bindMenu();
+  document.addEventListener("astro:page-load", bindMenu);
+</script>

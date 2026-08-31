@@ -1,0 +1,45 @@
+---
+import { footerLegal, site } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid-3">
+      <div>
+        <strong>{site.name}</strong>
+        <p>
+          {site.address.street}<br />
+          {site.address.zip} {site.address.city}
+        </p>
+        <p>
+          <a href={site.phoneHref}>{site.phoneDisplay}</a><br />
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+      </div>
+      <div>
+        <strong>Notdienst Bestandskunden</strong>
+        <p>24-Stunden-Hotline</p>
+        <p><a class="foot-phone" href={site.emergencyHref}>{site.emergencyPhone}</a></p>
+      </div>
+      <div>
+        <strong>Rechtliches</strong>
+        <p>
+          {
+            footerLegal.map((item) => (
+              <>
+                <a href={item.href} {...(item.href.startsWith("http") ? { rel: "nofollow" } : {})}>
+                  {item.label}
+                </a>
+                <br />
+              </>
+            ))
+          }
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© {new Date().getFullYear()} {site.name}</span>
+      <span>{site.tagline}</span>
+    </div>
+  </div>
+</footer>

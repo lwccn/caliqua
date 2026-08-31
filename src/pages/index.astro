@@ -1,0 +1,92 @@
+---
+import BuildingMap from "../components/BuildingMap.astro";
+import Layout from "../layouts/Base.astro";
+import { buildingZones } from "../data/building";
+import { featuredProjects } from "../data/references";
+import { site } from "../data/site";
+---
+
+<Layout
+  title={`Gebäudetechnik München | ${site.shortName}`}
+  description="Sanitär, Heizung, Klima, Kälte und Raumlufttechnik im Großraum München. Familienunternehmen mit rund 70 Beschäftigten, ISO 9001 und 24-Stunden-Notdienst."
+>
+  <section class="home">
+    <div class="wrap">
+      <div class="home-intro">
+        <div>
+          <h1>Versorgungs- und Gebäudetechnik</h1>
+          <p>
+            Handwerk und Ingenieurleistung für den Großraum München. Anlagenbau und
+            Service – nicht als Konzern, sondern als Familienbetrieb.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a class="cta" href="/kontakt#vertrieb">Projekt anfragen</a>
+          <a class="cta cta-ghost" href={site.emergencyHref}>Notdienst Bestandskunden</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-wide">
+      <BuildingMap />
+      <ol class="legend legend-row">
+        {
+          [...buildingZones]
+            .sort((a, b) => a.nr.localeCompare(b.nr))
+            .map((zone) => (
+              <li>
+                <a href={zone.href} data-zone={zone.id}>
+                  <span class="nr">{zone.nr}</span>
+                  <span>
+                    <strong>{zone.label}</strong>
+                    <span>{zone.note}</span>
+                  </span>
+                </a>
+              </li>
+            ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="facts">
+        <span><strong>Seit 1935</strong> in München</span>
+        <span><strong>Ca. 70</strong> Beschäftigte</span>
+        <span><strong>Ca. 13 Mio. Euro</strong> Jahresumsatz</span>
+        <span><strong>ISO 9001</strong> seit 1995, TÜV SÜD</span>
+      </div>
+      <div class="certs">
+        <a href="/unternehmen/zertifikate">ISO 9001 · TÜV SÜD</a>
+        <a href="/unternehmen/zertifikate">WHG-Fachbetrieb</a>
+        <a href="/unternehmen/zertifikate">VDI 6023 Kat. A/B</a>
+        <a href="/unternehmen/zertifikate">SWM Installateurverzeichnis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top: 0;">
+    <div class="wrap">
+      <h2>Ausgewählte Referenzen</h2>
+      <ul class="ref-grid">
+        {
+          featuredProjects.map((project) => (
+            <li>
+              <a href="/referenzen">
+                <img src={project.src} alt={project.alt} width="1536" height="1024" />
+                <span class="ref-grid-scrim"></span>
+                <span class="ref-grid-label">
+                  <strong>{project.name}</strong>
+                  <span>{project.place} · {project.gewerke}</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="cap">Stimmung der Gebäude, keine Projektdokumentation.</p>
+      <p style="margin-top: 16px;"><a href="/referenzen">Alle Referenzen</a></p>
+    </div>
+  </section>
+</Layout>

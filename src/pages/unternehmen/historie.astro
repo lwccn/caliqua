@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Base.astro";
+import { history } from "../../data/history";
+---
+
+<Layout
+  title="Firmengeschichte | Caliqua-Bormann"
+  description="Von calida aqua 1925 über Karl Bormann 1935 bis zur Fusion 2005: die Geschichte der CALIQUA-BORMANN GmbH & Co. KG in München."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Firmengeschichte</h1>
+      <p class="lead">
+        Seit über 90 Jahren besonders hochwertig. Von calida aqua 1925 über Karl
+        Bormann 1935 bis zur Fusion 2005: unabhängiger Familienbetrieb, Handwerk
+        und Ingenieurbüro in einem Haus.
+      </p>
+    </header>
+    <ol class="timeline">
+      {
+        history.map((item) => (
+          <li>
+            <strong>{item.year}</strong>
+            <p>{item.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</Layout>

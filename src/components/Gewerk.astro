@@ -1,0 +1,39 @@
+---
+interface Section {
+  title: string;
+  intro?: string;
+  items?: string[];
+}
+
+interface Props {
+  title: string;
+  lead: string;
+  sections: Section[];
+}
+
+const { title, lead, sections } = Astro.props;
+---
+
+<div class="wrap">
+  <header class="page-head">
+    <h1>{title}</h1>
+    <p class="lead">{lead}</p>
+  </header>
+  <div class="columns">
+    {
+      sections.map((section) => (
+        <section>
+          <h2>{section.title}</h2>
+          {section.intro && <p>{section.intro}</p>}
+          {section.items && (
+            <ul>
+              {section.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))
+    }
+  </div>
+</div>

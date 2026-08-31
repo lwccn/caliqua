@@ -1,0 +1,58 @@
+---
+import { jobs } from "../data/jobs";
+import { site } from "../data/site";
+
+const local = {
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  name: site.name,
+  url: site.url,
+  telephone: "+49-89-32361-0",
+  email: site.email,
+  image: `${site.url}/images/logo.png`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address.street,
+    postalCode: site.address.zip,
+    addressLocality: site.address.city,
+    addressCountry: "DE",
+  },
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Großraum München",
+  },
+  openingHours: "Mo-Fr 08:00-12:00, Mo-Th 13:00-16:30",
+};
+
+const postings = jobs.map((job) => ({
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  title: job.title,
+  description: [job.subtitle, ...job.tasks].filter(Boolean).join(". "),
+  hiringOrganization: {
+    "@type": "Organization",
+    name: site.name,
+    sameAs: site.url,
+  },
+  jobLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "München",
+      addressRegion: "BY",
+      addressCountry: "DE",
+    },
+  },
+  employmentType: "FULL_TIME",
+  directApply: false,
+  applicationContact: {
+    "@type": "ContactPoint",
+    email: job.email,
+  },
+}));
+
+const { includeJobs = false } = Astro.props as { includeJobs?: boolean };
+const payload = includeJobs ? [local, ...postings] : local;
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(payload)} />

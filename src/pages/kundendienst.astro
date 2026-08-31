@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Layout
+  title="Kundendienst, Wartung, Notdienst | Caliqua-Bormann"
+  description="Kundendienst für Heizung, Kälte, Sanitär und Raumluft im Großraum München. Wartung, 24-Stunden-Notdienst für Bestandskunden und Trinkwasserhygiene nach VDI 6023."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Kundendienst</h1>
+      <p class="lead">
+        Mit der Kundendienstabteilung ergänzen wir den Leistungsumfang der
+        Bauabteilungen. Rund 10 Servicemonteure und Büromitarbeiter organisieren
+        Service, Notdienst und Wartung in einem Umfang von ca. 1,2 Mio. Euro jährlich.
+      </p>
+    </header>
+    <ul class="anchors">
+      <li><a href="#service">Service</a></li>
+      <li><a href="#wartung">Wartung</a></li>
+      <li><a href="#notdienst">Notdienst</a></li>
+      <li><a href="#hygiene">Trinkwasserhygiene</a></li>
+    </ul>
+
+    <div class="grid-2">
+    <section class="section-anchor" id="service">
+      <h2>Service</h2>
+      <p>
+        Entstörungsdienst, Reparaturen, Sanierungen und Umbauten in Heizungs-,
+        Kälte-, Sanitär-, Raumluft- und Regelungstechnik. Neben Störungsbehebung
+        und Kleinreparaturen erstellt die Service-Abteilung regelmäßig auch
+        Sanierungs- und Neubaumaßnahmen größeren Umfangs. Zum Kundenkreis zählen
+        vorrangig Hausverwaltungen und Industriekunden.
+      </p>
+    </section>
+
+    <section class="section-anchor" id="wartung">
+      <h2>Wartung</h2>
+      <p>
+        Nach Fertigstellung eines Objekts übernimmt oft der Kundendienst die
+        weitere Betreuung über einen Wartungsvertrag. So sichert der Kunde den
+        Wert der Investition und die Gewährleistungsrechte. Auch Fremdobjekte
+        werden gewartet und optimiert.
+      </p>
+    </section>
+    </div>
+
+    <div class="emergency">
+      <div>
+        <h2>Kundendienst-Hotline Bestandskunden</h2>
+        <p>Rund um die Uhr</p>
+      </div>
+      <a href={site.emergencyHref}>{site.emergencyPhone}</a>
+    </div>
+
+    <div class="grid-2">
+    <section class="section-anchor" id="notdienst">
+      <h2>Notdienst</h2>
+      <p>
+        24-Stunden-Notdienstbereitschaft für Bestandskunden. Nach Eingang eines
+        Notrufs kontaktiert der diensthabende Monteur den Kunden und fährt dann
+        vor Ort.
+      </p>
+    </section>
+
+    <section class="section-anchor" id="hygiene">
+      <h2>Trinkwasserhygiene</h2>
+      <p>
+        Trinkwasseranalysen und Legionellen-Bekämpfung. Unser Spezialist
+        (zertifizierter Sachkundiger nach VDI/DVGW 6023 Kategorie A und B) berät
+        Sie in allen Angelegenheiten der Trinkwasserhygiene.
+      </p>
+      <p><a href="/unternehmen/zertifikate">Zertifikate zum Download</a></p>
+    </section>
+    </div>
+  </div>
+</Layout>

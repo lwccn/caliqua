@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Base.astro";
+import { buildingZones } from "../../data/building";
+---
+
+<Layout
+  title="Leistungen | Caliqua-Bormann"
+  description="Heizung, Raumluft, Sanitär/Gas/Medien und Kälte: Planung, Montage und Betreuung von Anlagen im Großraum München."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Gebäudetechnik</h1>
+      <p class="lead">
+        Wir beherrschen Wärme-, Kälte-, Sanitär-, Lüftungs- und Klimatechnik sowie
+        Rohrleitungssysteme. Aus Gründen der flexiblen und qualitätsorientierten
+        Koordination und in Bezug auf Wartung und Service konzentrieren wir uns auf
+        Kunden im Großraum München.
+      </p>
+    </header>
+    <ol class="legend legend-index">
+      {
+        buildingZones
+          .filter((zone) => zone.id !== "service")
+          .slice()
+          .sort((a, b) => a.nr.localeCompare(b.nr))
+          .map((zone) => (
+            <li>
+              <a href={zone.href}>
+                <span class="nr">{zone.nr}</span>
+                <span>
+                  <strong>{zone.label}</strong>
+                  <span>{zone.note}</span>
+                </span>
+              </a>
+            </li>
+          ))
+      }
+    </ol>
+  </div>
+</Layout>
