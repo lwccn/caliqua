@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { site } from "../data/site";
+import { absoluteUrl } from "../lib/paths";
 
 const paths = [
   "/",
@@ -23,7 +23,7 @@ const paths = [
 ];
 
 export const GET: APIRoute = () => {
-  const urls = paths.map((path) => `${site.url}${path === "/" ? "" : path}`);
+  const urls = paths.map((path) => absoluteUrl(path));
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((loc) => `  <url><loc>${loc}</loc><changefreq>monthly</changefreq></url>`).join("\n")}

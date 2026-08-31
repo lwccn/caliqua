@@ -1,7 +1,8 @@
 ---
 import { headerNav, site } from "../data/site";
+import { stripBase, withBase } from "../lib/paths";
 
-const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const path = stripBase(Astro.url.pathname);
 
 function current(href: string) {
   const clean = href.replace(/\/$/, "") || "/";
@@ -12,8 +13,8 @@ function current(href: string) {
 
 <header class="site-header" id="site-header" transition:persist="site-header">
   <div class="wrap">
-    <a class="logo" href="/" aria-label={`${site.shortName} – Startseite`} transition:name="brand-logo">
-      <img src="/images/logo.png" width="214" height="58" alt={site.name} />
+    <a class="logo" href={withBase("/")} aria-label={`${site.shortName} – Startseite`} transition:name="brand-logo">
+      <img src={withBase("/images/logo.png")} width="214" height="58" alt={site.name} />
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" id="menu-btn">
       Menü
@@ -22,13 +23,13 @@ function current(href: string) {
       {
         headerNav.map((item) => (
           <li>
-            <a href={item.href} aria-current={current(item.href) ? "page" : undefined}>
+            <a href={withBase(item.href)} aria-current={current(item.href) ? "page" : undefined}>
               {item.label}
             </a>
             {item.children && (
               <div class="sub">
                 {item.children.map((child) => (
-                  <a href={child.href} aria-current={current(child.href) ? "page" : undefined}>
+                  <a href={withBase(child.href)} aria-current={current(child.href) ? "page" : undefined}>
                     {child.label}
                     {child.note && <span class="nav-note">{child.note}</span>}
                   </a>
@@ -39,7 +40,7 @@ function current(href: string) {
         ))
       }
     </ul>
-    <a class="cta header-cta" href="/kontakt#vertrieb">Projekt anfragen</a>
+    <a class="cta header-cta" href={withBase("/kontakt#vertrieb")}>Projekt anfragen</a>
   </div>
 </header>
 

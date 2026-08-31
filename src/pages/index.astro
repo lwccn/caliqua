@@ -4,6 +4,7 @@ import Layout from "../layouts/Base.astro";
 import { buildingZones } from "../data/building";
 import { featuredProjects } from "../data/references";
 import { site } from "../data/site";
+import { withBase } from "../lib/paths";
 ---
 
 <Layout
@@ -21,7 +22,7 @@ import { site } from "../data/site";
           </p>
         </div>
         <div class="hero-actions">
-          <a class="cta" href="/kontakt#vertrieb">Projekt anfragen</a>
+          <a class="cta" href={withBase("/kontakt#vertrieb")}>Projekt anfragen</a>
           <a class="cta cta-ghost" href={site.emergencyHref}>Notdienst Bestandskunden</a>
         </div>
       </div>
@@ -35,7 +36,7 @@ import { site } from "../data/site";
             .sort((a, b) => a.nr.localeCompare(b.nr))
             .map((zone) => (
               <li>
-                <a href={zone.href} data-zone={zone.id}>
+                <a href={withBase(zone.href)} data-zone={zone.id}>
                   <span class="nr">{zone.nr}</span>
                   <span>
                     <strong>{zone.label}</strong>
@@ -58,10 +59,10 @@ import { site } from "../data/site";
         <span><strong>ISO 9001</strong> seit 1995, TÜV SÜD</span>
       </div>
       <div class="certs">
-        <a href="/unternehmen/zertifikate">ISO 9001 · TÜV SÜD</a>
-        <a href="/unternehmen/zertifikate">WHG-Fachbetrieb</a>
-        <a href="/unternehmen/zertifikate">VDI 6023 Kat. A/B</a>
-        <a href="/unternehmen/zertifikate">SWM Installateurverzeichnis</a>
+        <a href={withBase("/unternehmen/zertifikate")}>ISO 9001 · TÜV SÜD</a>
+        <a href={withBase("/unternehmen/zertifikate")}>WHG-Fachbetrieb</a>
+        <a href={withBase("/unternehmen/zertifikate")}>VDI 6023 Kat. A/B</a>
+        <a href={withBase("/unternehmen/zertifikate")}>SWM Installateurverzeichnis</a>
       </div>
     </div>
   </section>
@@ -73,8 +74,8 @@ import { site } from "../data/site";
         {
           featuredProjects.map((project) => (
             <li>
-              <a href="/referenzen">
-                <img src={project.src} alt={project.alt} width="1536" height="1024" />
+              <a href={withBase("/referenzen")}>
+                <img src={withBase(project.src)} alt={project.alt} width="1536" height="1024" />
                 <span class="ref-grid-scrim"></span>
                 <span class="ref-grid-label">
                   <strong>{project.name}</strong>
@@ -86,7 +87,7 @@ import { site } from "../data/site";
         }
       </ul>
       <p class="cap">Stimmung der Gebäude, keine Projektdokumentation.</p>
-      <p style="margin-top: 16px;"><a href="/referenzen">Alle Referenzen</a></p>
+      <p style="margin-top: 16px;"><a href={withBase("/referenzen")}>Alle Referenzen</a></p>
     </div>
   </section>
 </Layout>

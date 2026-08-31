@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://www.caliqua-bormann.de",
+  site: "https://lwccn.github.io",
+  base: "/caliqua",
   trailingSlash: "never",
 });

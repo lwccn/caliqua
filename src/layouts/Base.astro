@@ -17,13 +17,12 @@ interface Props {
 }
 
 const { title, description, includeJobs = false } = Astro.props;
-const path = Astro.url.pathname;
 ---
 
 <!doctype html>
 <html lang="de">
   <head>
-    <Seo title={title} description={description} path={path} />
+    <Seo title={title} description={description} />
     <JsonLd includeJobs={includeJobs} />
     <ClientRouter />
   </head>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Base.astro";
+import { withBase } from "../../lib/paths";
 ---
 
 <Layout
@@ -47,7 +48,7 @@ import Layout from "../../layouts/Base.astro";
       <div>
         <figure class="page-photo">
           <img
-            src="/images/buero.jpg"
+            src={withBase("/images/buero.jpg")}
             alt="Büro, Werkstatt und Lager am Frankfurter Ring 222, München"
             width="1600"
             height="700"

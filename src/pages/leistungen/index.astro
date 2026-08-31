@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import { buildingZones } from "../../data/building";
+import { withBase } from "../../lib/paths";
 ---
 
 <Layout
@@ -25,7 +26,7 @@ import { buildingZones } from "../../data/building";
           .sort((a, b) => a.nr.localeCompare(b.nr))
           .map((zone) => (
             <li>
-              <a href={zone.href}>
+              <a href={withBase(zone.href)}>
                 <span class="nr">{zone.nr}</span>
                 <span>
                   <strong>{zone.label}</strong>

@@ -1,5 +1,6 @@
 ---
 import { footerLegal, site } from "../data/site";
+import { withBase } from "../lib/paths";
 ---
 
 <footer class="site-footer">
@@ -27,7 +28,7 @@ import { footerLegal, site } from "../data/site";
           {
             footerLegal.map((item) => (
               <>
-                <a href={item.href} {...(item.href.startsWith("http") ? { rel: "nofollow" } : {})}>
+                <a href={withBase(item.href)} {...(item.href.startsWith("http") ? { rel: "nofollow" } : {})}>
                   {item.label}
                 </a>
                 <br />

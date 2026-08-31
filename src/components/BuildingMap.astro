@@ -1,11 +1,12 @@
 ---
 import { buildingZones } from "../data/building";
+import { withBase } from "../lib/paths";
 ---
 
 <figure class="building">
   <div class="building-stage">
     <img
-      src="/images/craft/building-iso.jpg"
+      src={withBase("/images/craft/building-iso.jpg")}
       alt="Isometrisches Modell eines Gebäudes mit Heizung, Lüftung, Sanitär, Kälte und Hofzufahrt. Keine konkrete Anlage."
       width="1536"
       height="1024"
@@ -13,7 +14,7 @@ import { buildingZones } from "../data/building";
     <svg class="building-map" viewBox="0 0 1536 1024" role="group" aria-label="Gewerke im Gebäude">
       {
         buildingZones.map((zone) => (
-          <a href={zone.href} data-zone={zone.id}>
+          <a href={withBase(zone.href)} data-zone={zone.id}>
             <title>{zone.label}: {zone.note}</title>
             <polygon points={zone.points} />
           </a>
@@ -25,7 +26,7 @@ import { buildingZones } from "../data/building";
         buildingZones.map((zone) => (
           <a
             class="pin"
-            href={zone.href}
+            href={withBase(zone.href)}
             data-zone={zone.id}
             aria-label={`${zone.nr} ${zone.label}`}
             style={`left: ${zone.pinX}%; top: ${zone.pinY}%;`}

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Base.astro";
 import { site } from "../data/site";
+import { withBase } from "../lib/paths";
 ---
 
 <Layout
@@ -71,7 +72,7 @@ import { site } from "../data/site";
         (zertifizierter Sachkundiger nach VDI/DVGW 6023 Kategorie A und B) berät
         Sie in allen Angelegenheiten der Trinkwasserhygiene.
       </p>
-      <p><a href="/unternehmen/zertifikate">Zertifikate zum Download</a></p>
+      <p><a href={withBase("/unternehmen/zertifikate")}>Zertifikate zum Download</a></p>
     </section>
     </div>
   </div>

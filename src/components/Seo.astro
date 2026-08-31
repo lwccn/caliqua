@@ -1,14 +1,15 @@
 ---
+import { absoluteUrl, withBase } from "../lib/paths";
+
 interface Props {
   title: string;
   description: string;
-  path: string;
   type?: "website" | "article";
 }
 
-const { title, description, path, type = "website" } = Astro.props;
-const canonical = new URL(path, "https://www.caliqua-bormann.de").toString();
-const image = "https://www.caliqua-bormann.de/images/kaelte.jpg";
+const { title, description, type = "website" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const image = absoluteUrl("/images/kaelte.jpg");
 ---
 
 <meta charset="utf-8" />
@@ -27,5 +28,5 @@ const image = "https://www.caliqua-bormann.de/images/kaelte.jpg";
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
-<link rel="icon" href="/favicon.ico" />
+<link rel="icon" href={withBase("/favicon.ico")} />
 <meta name="theme-color" content="#ff8a00" />

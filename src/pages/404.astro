@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Base.astro";
+import { withBase } from "../lib/paths";
 ---
 
 <Layout
@@ -11,6 +12,6 @@ import Layout from "../layouts/Base.astro";
       <h1>Seite nicht gefunden</h1>
       <p class="lead">Die Adresse existiert auf der neuen Website nicht. Alte Contao-Pfade unter /index.php sollten per 301 umgeleitet werden.</p>
     </header>
-    <p><a href="/">Zur Startseite</a> · <a href="/kontakt">Kontakt</a></p>
+    <p><a href={withBase("/")}>Zur Startseite</a> · <a href={withBase("/kontakt")}>Kontakt</a></p>
   </div>
 </Layout>

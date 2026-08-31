@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import { agbFiles } from "../../data/certificates";
+import { withBase } from "../../lib/paths";
 ---
 
 <Layout
@@ -18,7 +19,7 @@ import { agbFiles } from "../../data/certificates";
       {
         agbFiles.map((file) => (
           <li>
-            <a href={file.href}>{file.label}</a> (PDF)
+            <a href={withBase(file.href)}>{file.label}</a> (PDF)
           </li>
         ))
       }

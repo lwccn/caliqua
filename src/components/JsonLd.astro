@@ -1,15 +1,18 @@
 ---
 import { jobs } from "../data/jobs";
 import { site } from "../data/site";
+import { absoluteUrl } from "../lib/paths";
+
+const publicUrl = absoluteUrl("/");
 
 const local = {
   "@context": "https://schema.org",
   "@type": "HVACBusiness",
   name: site.name,
-  url: site.url,
+  url: publicUrl,
   telephone: "+49-89-32361-0",
   email: site.email,
-  image: `${site.url}/images/logo.png`,
+  image: absoluteUrl("/images/logo.png"),
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
@@ -32,7 +35,7 @@ const postings = jobs.map((job) => ({
   hiringOrganization: {
     "@type": "Organization",
     name: site.name,
-    sameAs: site.url,
+    sameAs: publicUrl,
   },
   jobLocation: {
     "@type": "Place",

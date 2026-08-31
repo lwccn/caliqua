@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Base.astro";
 import { site } from "../data/site";
+import { withBase } from "../lib/paths";
 ---
 
 <Layout
@@ -55,7 +56,7 @@ import { site } from "../data/site";
     <h2>Betriebshaftpflicht</h2>
     <p>
       Betriebs-, Produkt- und Umwelthaftpflichtversicherung: AXA Versicherung AG.
-      Bestätigung unter <a href="/unternehmen/zertifikate">Zertifikate</a>.
+      Bestätigung unter <a href={withBase("/unternehmen/zertifikate")}>Zertifikate</a>.
     </p>
 
     <h2>Streitschlichtung</h2>

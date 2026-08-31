@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import { certificates } from "../../data/certificates";
+import { withBase } from "../../lib/paths";
 ---
 
 <Layout
@@ -24,7 +25,7 @@ import { certificates } from "../../data/certificates";
           <ul>
             {group.files.map((file) => (
               <li>
-                <a href={file.href}>{file.label}</a> (PDF)
+                <a href={withBase(file.href)}>{file.label}</a> (PDF)
               </li>
             ))}
           </ul>

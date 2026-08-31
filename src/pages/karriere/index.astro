@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import { site } from "../../data/site";
+import { withBase } from "../../lib/paths";
 ---
 
 <Layout
@@ -18,8 +19,8 @@ import { site } from "../../data/site";
     </header>
     <p class="hero-actions page-actions">
       <a class="cta" href="mailto:bewerbung@caliqua-bormann.de">Jetzt bewerben</a>
-      <a class="cta cta-ghost" href="/karriere/stellenangebote">Stellenangebote</a>
-      <a class="cta cta-ghost" href="/karriere/ausbildung">Ausbildung 2026</a>
+      <a class="cta cta-ghost" href={withBase("/karriere/stellenangebote")}>Stellenangebote</a>
+      <a class="cta cta-ghost" href={withBase("/karriere/ausbildung")}>Ausbildung 2026</a>
     </p>
     <div class="grid-2">
       <article class="panel">
