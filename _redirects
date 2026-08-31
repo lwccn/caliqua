@@ -1,0 +1,51 @@
+# Contao public URLs → static IA
+/index.php/profil.html  /unternehmen  301
+/profil.html  /unternehmen  301
+/index.php/referenzen.html  /referenzen  301
+/referenzen.html  /referenzen  301
+/index.php/historie.html  /unternehmen/historie  301
+/historie.html  /unternehmen/historie  301
+/index.php/bescheinigungen.html  /unternehmen/zertifikate  301
+/bescheinigungen.html  /unternehmen/zertifikate  301
+/index.php/allgemeine-geschaeftsbedingungen-agb.html  /unternehmen/agb  301
+/allgemeine-geschaeftsbedingungen-agb.html  /unternehmen/agb  301
+/index.php/gebaeudetechnik.html  /leistungen  301
+/gebaeudetechnik.html  /leistungen  301
+/index.php/heizungstechnik.html  /leistungen/heizungstechnik  301
+/heizungstechnik.html  /leistungen/heizungstechnik  301
+/index.php/raumlufttechnik.html  /leistungen/raumlufttechnik  301
+/raumlufttechnik.html  /leistungen/raumlufttechnik  301
+/index.php/sanitaertechnik.html  /leistungen/sanitaer-gas-medien  301
+/sanitaertechnik.html  /leistungen/sanitaer-gas-medien  301
+/index.php/kaeltetechnik.html  /leistungen/kaeltetechnik  301
+/kaeltetechnik.html  /leistungen/kaeltetechnik  301
+/index.php/kundendienst.html  /kundendienst  301
+/kundendienst.html  /kundendienst  301
+/index.php/arbeitgeber-und-ausbildungsbetrieb.html  /karriere  301
+/arbeitgeber-und-ausbildungsbetrieb.html  /karriere  301
+/index.php/stellenangebote.html  /karriere/stellenangebote  301
+/stellenangebote.html  /karriere/stellenangebote  301
+/index.php/ausbildung.html  /karriere/ausbildung  301
+/ausbildung.html  /karriere/ausbildung  301
+/index.php/kontakt-anfahrt.html  /kontakt  301
+/kontakt-anfahrt.html  /kontakt  301
+/index.php/kontakt.html  /kontakt  301
+/kontakt.html  /kontakt  301
+/index.php/impressum.html  /impressum  301
+/impressum.html  /impressum  301
+/index.php/datenschutz.html  /datenschutz  301
+/datenschutz.html  /datenschutz  301
+/index.php/suche.html  /  301
+/suche.html  /  301
+/index.php/Pressemitteilung.html  /  301
+/Pressemitteilung.html  /  301
+
+# Employee intranet stays on Contao
+/index.php/login-293.html  https://intranet.caliqua-bormann.de  301
+/login-293.html  https://intranet.caliqua-bormann.de  301
+/index.php/login.html  https://intranet.caliqua-bormann.de  301
+
+# Force HTTPS host at the edge (also configure DNS / host panel)
+http://caliqua-bormann.de/*  https://www.caliqua-bormann.de/:splat  301
+http://www.caliqua-bormann.de/*  https://www.caliqua-bormann.de/:splat  301
+https://caliqua-bormann.de/*  https://www.caliqua-bormann.de/:splat  301
